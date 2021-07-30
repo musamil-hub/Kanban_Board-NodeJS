@@ -11,16 +11,17 @@
 }
 
 .tasks__list {
+  margin-top: -13px;
   display: flex;
   flex-direction: column;
   min-height: 50px;
   overflow-y: scroll;
   max-height: 550px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 5px;
   padding: 0.5rem 1rem;
   background-color: #eee;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); */
 }
 
 .tasks__list::-webkit-scrollbar {
@@ -30,4 +31,11 @@
 .over {
   overflow-y: scroll;
   height: 400px;
+}
+
+.title {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); */
+  background-color: #eee;
 }

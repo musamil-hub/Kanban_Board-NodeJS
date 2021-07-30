@@ -12,7 +12,7 @@ exports.getPosts = (req, res, next) => {
   });
 };
 
-exports.createPosts = (req, res, next) => {
+exports.createPosts = async (req, res, next) => {
   console.log(req, res);
   const newCard = new PostCards({
     title: req.body.title,
@@ -21,7 +21,7 @@ exports.createPosts = (req, res, next) => {
     date: req.body.date,
     color: req.body.color,
   });
-  newCard.save((err, docs) => {
+  await newCard.save((err, docs) => {
     if (!err) res.status(200).send(docs);
     else
       console.log(

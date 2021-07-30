@@ -3,11 +3,10 @@
 }
 .App {
   max-width: auto;
-  margin: 3px auto;
+  margin: 0 auto;
+  padding-top: 20px;
+  height: 585px;
   /* border: 1px solid black; */
-  /* overflow-x: scroll; */
-  height: 568px;
-  /* background-color: rosybrown; */
 }
 
 .App::-webkit-scrollbar {

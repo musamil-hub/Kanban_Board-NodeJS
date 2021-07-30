@@ -7,7 +7,6 @@ import './Lists.css';
 
 const Lists = props => {
   let data = props.data;
-  // console.log(data);
   const [columns, setColumns] = useState(data);
 
   useEffect(() => {
@@ -44,8 +43,10 @@ const Lists = props => {
         color: removed.color,
         date: removed.date,
       };
-      props.dndPostCard(removed._id, dndData);
-      console.log(dndData);
+      const onSuccess = () => {
+        console.log('dnd saved');
+      };
+      props.dndPostCard(removed._id, dndData, onSuccess);
     } else {
       const column = columns[source.droppableId];
       const copiedItems = [...column.items];
@@ -69,7 +70,7 @@ const Lists = props => {
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div className='tasks__column' key={`${columnId}${column.title}`}>
-              <h5 style={{ color: 'grey' }}>{column.title}</h5>
+              <h5 className='title'>{column.title}</h5>
               <Droppable droppableId={columnId}>
                 {provider => {
                   return (

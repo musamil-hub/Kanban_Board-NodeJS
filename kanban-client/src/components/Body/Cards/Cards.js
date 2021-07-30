@@ -11,7 +11,6 @@ import { toast } from 'react-toastify';
 const Cards = props => {
   const card = props.card;
   const index = props.index;
-  //   console.log(card);
 
   const [modalShow, setModalShow] = useState(false);
   const [actionbtn, setActionbtn] = useState(false);
@@ -41,7 +40,64 @@ const Cards = props => {
             {...provided.dragHandleProps}
             ref={provided.innerRef}
           >
-            <Card
+            <div
+              className='card'
+              onMouseLeave={() => {
+                setActionbtn(false);
+              }}
+              onMouseEnter={() => {
+                setActionbtn(true);
+              }}
+            >
+              <div className='card-body'>
+                <span
+                  className='tag tag-purple'
+                  style={{ backgroundColor: `${card.color}` }}
+                ></span>
+                <div className='title1'>{card.title}</div>
+                <p className='line-clamp line-clamp-2' title={card.description}>
+                  {card.description}
+                </p>
+                <div className='user'>
+                  <div className='user-info'>
+                    <small>{card.date}</small>
+                  </div>
+                  {actionbtn && (
+                    <div className='edit'>
+                      <i
+                        onClick={() => setModalShow(true)}
+                        className='bi bi-pencil-square'
+                        style={{
+                          color: 'grey',
+                          cursor: 'pointer',
+                        }}
+                      ></i>
+                      <i
+                        onClick={() => handlerDelete(card)}
+                        className='bi bi-archive-fill'
+                        style={{
+                          color: 'grey',
+                          cursor: 'pointer',
+                          marginLeft: '15px',
+                        }}
+                      ></i>
+                    </div>
+                  )}
+                  <Modals
+                    components={
+                      <EditCard
+                        handleClose={() => setModalShow(false)}
+                        setaction={() => setActionbtn(false)}
+                        data={card}
+                      />
+                    }
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                  />
+                </div>
+              </div>
+            </div>
+            {/* <Card
               style={{ borderLeft: `2px solid ${card.color}` }}
               onMouseLeave={() => {
                 setActionbtn(false);
@@ -89,20 +145,10 @@ const Cards = props => {
                       ></i>
                     </div>
                   )}
-                  <Modals
-                    components={
-                      <EditCard
-                        handleClose={() => setModalShow(false)}
-                        setaction={() => setActionbtn(false)}
-                        data={card}
-                      />
-                    }
-                    show={modalShow}
-                    onHide={() => setModalShow(false)}
-                  />
+                 
                 </small>
               </Card.Footer>
-            </Card>
+            </Card> */}
           </div>
         );
       }}

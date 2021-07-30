@@ -21,7 +21,6 @@ let donearr = [];
 export const postCard = (state = Dummy, action) => {
   switch (action.type) {
     case ACTION_TYPES.FETCH_ALL:
-      console.log('Fetch_ All');
       todoarr = [];
       doingarr = [];
       donearr = [];
@@ -66,12 +65,10 @@ export const postCard = (state = Dummy, action) => {
         },
       };
     case ACTION_TYPES.CREATE:
-      console.log('switch Card Create');
       const cassign_to = action.payload.assign_to;
       const newdata = {
         ...action.payload,
       };
-      console.log(newdata);
       if (cassign_to === 'todo') {
         todoarr.push(newdata);
       } else if (cassign_to === 'doing') {
@@ -105,11 +102,9 @@ export const postCard = (state = Dummy, action) => {
       };
 
       updatearr = updatearr.map(x => {
-        console.log(x, action.payload);
         return x._id === action.payload._id ? updatedata : x;
       });
 
-      console.log(updatearr);
       todoarr = [];
       doingarr = [];
       donearr = [];

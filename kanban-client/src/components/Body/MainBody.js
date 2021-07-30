@@ -5,7 +5,7 @@ import Lists from './Lists/Lists';
 import './MainBody.css';
 const MainBody = props => {
   let datas = props.postCardList;
-  console.log(datas);
+
   useEffect(() => {
     props.fetchAllPostCard();
   }, []);

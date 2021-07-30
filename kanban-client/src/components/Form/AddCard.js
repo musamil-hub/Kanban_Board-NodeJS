@@ -4,7 +4,7 @@ import useInput from './use-input';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/postCardAction';
 import { Modal, Button } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 const isNotEmpty = value => value.trim() !== '';
 
 const AddCard = props => {
@@ -48,7 +48,6 @@ const AddCard = props => {
   }
 
   const submitHandler = event => {
-    console.log('Card Added Successfully');
     event.preventDefault();
     // date
     let today = new Date();
@@ -73,7 +72,6 @@ const AddCard = props => {
       });
       props.handleClose();
     };
-    console.log(itemsfetch);
     props.createPostCard(itemsfetch, onSuccess);
     resetTitle();
     resettype();
@@ -101,7 +99,7 @@ const AddCard = props => {
               placeholder='Enter Title'
             />
             {titleHasError && (
-              <p className='error-text'>Please enter a Title.</p>
+              <p style={{ color: 'red' }}>Please enter a Title.</p>
             )}
           </div>
           <div className='mb-3'>
@@ -118,7 +116,7 @@ const AddCard = props => {
               onBlur={descriptionBlurHandler}
             ></textarea>
             {descriptionHasError && (
-              <p className='error-text'>Please enter a description.</p>
+              <p style={{ color: 'red' }}>Please enter a description.</p>
             )}
           </div>
           <div style={{ display: 'flex' }}>
@@ -136,7 +134,7 @@ const AddCard = props => {
                 onBlur={colorBlurHandler}
               ></input>
               {colorHasError && (
-                <p className='error-text'>Please enter a Color.</p>
+                <p style={{ color: 'red' }}>Please enter a Color.</p>
               )}
             </div>
             <div style={{ marginLeft: '25px' }}>
@@ -156,7 +154,7 @@ const AddCard = props => {
                 <option value='done'>Done</option>
               </select>
               {typeHasError && (
-                <p className='error-text'>Please enter a Type.</p>
+                <p style={{ color: 'red' }}>Please enter a Type.</p>
               )}
             </div>
           </div>

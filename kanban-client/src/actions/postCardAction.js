@@ -23,7 +23,7 @@ export const fetchAll = () => async dispatch => {
 };
 
 export const create = (data, onSuccess) => dispatch => {
-  console.log(data);
+
   api
     .postCard()
     .create(data)
@@ -40,7 +40,7 @@ export const create = (data, onSuccess) => dispatch => {
 };
 
 export const update = (id, data, onSuccess) => dispatch => {
-  console.log(id);
+
   api
     .postCard()
     .update(id, data)
@@ -58,12 +58,12 @@ export const update = (id, data, onSuccess) => dispatch => {
 };
 
 export const dnd = (id, data, onSuccess) => dispatch => {
-  console.log(id);
+
   api
     .postCard()
     .update(id, data)
     .then(res => {
-      console.log(res.data);
+
       dispatch({
         type: ACTION_TYPES.DND,
         payload: res.data,

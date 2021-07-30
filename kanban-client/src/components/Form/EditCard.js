@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button, FloatingLabel, Form } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/postCardAction';
+
 const EditForm = props => {
   const values = props.data;
   const [title, setTitle] = useState(values.title);
@@ -13,11 +14,10 @@ const EditForm = props => {
 
   const onSubmit = event => {
     event.preventDefault();
-    console.log('Card Edit Successfully');
     // date
     let today = new Date();
     let time = today.toLocaleString([], { hour12: true });
-
+    setId(id);
     let newData = {
       _id: id,
       title: title,
@@ -34,8 +34,8 @@ const EditForm = props => {
       props.setaction();
     };
     props.updatePostCard(id, newData, onSuccess);
-    console.log(newData);
   };
+
   useEffect(() => {
     props.updatePostCard(id);
   }, []);

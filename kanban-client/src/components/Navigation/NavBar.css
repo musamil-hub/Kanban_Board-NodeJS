@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0px none;
+}
+
+.html {
+  /*   width: 100%;
+      height: 100%;
+      background-color: #333;   */
+  font: 900 2em/2em 'Montserrat';
+}
+
+.logotitle {
+  margin: auto;
+  font-size: 30px;
+  font-family: 'Luckiest Guy';
+  color: rgba(255, 255, 255, 0.719);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0px -6px 0 #212121, 0px -6px 0 #212121, 0px 6px 0 #212121,
+    0px 6px 0 #212121, -6px 0px 0 #212121, 6px 0px 0 #212121, -6px 0px 0 #212121,
+    6px 0px 0 #212121, -6px -6px 0 #212121, 6px -6px 0 #212121,
+    -6px 6px 0 #212121, 6px 6px 0 #212121;
+}
+
+.button {
+}
