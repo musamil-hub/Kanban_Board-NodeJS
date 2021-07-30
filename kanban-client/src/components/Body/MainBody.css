@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+.App {
+  max-width: auto;
+  margin: 3px auto;
+  /* border: 1px solid black; */
+  /* overflow-x: scroll; */
+  height: 568px;
+  /* background-color: rosybrown; */
+}
+
+.App::-webkit-scrollbar {
+  display: none;
+}
