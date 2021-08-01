@@ -70,7 +70,9 @@ const Lists = props => {
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div className='tasks__column' key={`${columnId}${column.title}`}>
-              <h5 className='title'>{column.title}</h5>
+              <div className='onetitle'>
+                <h1 className='h1title'>{column.title}</h1>
+              </div>
               <Droppable droppableId={columnId}>
                 {provider => {
                   return (

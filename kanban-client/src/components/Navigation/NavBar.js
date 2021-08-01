@@ -9,7 +9,7 @@ const Header = () => {
     <div className='html'>
       <Navbar variant='dark' style={{ height: '50px', borderRadius: '4px' }}>
         <Container>
-          <Navbar.Brand href='#home'>
+          <Navbar.Brand href='/'>
             <p className='logotitle'>K A N B A N &nbsp; &nbsp; B O A R D</p>
           </Navbar.Brand>
           <Navbar.Toggle />

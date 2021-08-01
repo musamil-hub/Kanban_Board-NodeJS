@@ -149,7 +149,59 @@ export const postCard = (state = Dummy, action) => {
         },
       };
     case ACTION_TYPES.DND:
-      break;
+      let dndarr = [];
+      dndarr.push(...todoarr, ...doingarr, ...donearr);
+      const dnddata = {
+        ...action.payload,
+      };
+
+      dndarr = dndarr.map(x => {
+        return x._id === action.payload._id ? dnddata : x;
+      });
+
+      todoarr = [];
+      doingarr = [];
+      donearr = [];
+      for (let j in dndarr) {
+        const dnd_id = dndarr[j]._id;
+        const dnd_title = dndarr[j].title;
+        const dnd_description = dndarr[j].description;
+        const dnd_assign_to = dndarr[j].assign_to;
+        const dnd_date = dndarr[j].date;
+        const dnd_color = dndarr[j].color;
+        const dnddata = {
+          _id: dnd_id,
+          title: dnd_title,
+          description: dnd_description,
+          assign_to: dnd_assign_to,
+          date: dnd_date,
+          color: dnd_color,
+        };
+        if (dnd_assign_to === 'todo') {
+          todoarr.push(dnddata);
+        } else if (dnd_assign_to === 'doing') {
+          doingarr.push(dnddata);
+        } else {
+          donearr.push(dnddata);
+        }
+      }
+      return {
+        todo: {
+          title: 'Todo',
+          ...state.todo,
+          items: todoarr,
+        },
+        doing: {
+          title: 'Doing',
+          ...state.doing,
+          items: doingarr,
+        },
+        done: {
+          title: 'Done',
+          ...state.done,
+          items: donearr,
+        },
+      };
     case ACTION_TYPES.DELETE:
       todoarr = todoarr.filter(x => x._id !== action.payload);
       doingarr = doingarr.filter(x => x._id !== action.payload);

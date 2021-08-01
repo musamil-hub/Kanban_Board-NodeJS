@@ -13,7 +13,6 @@ exports.getPosts = (req, res, next) => {
 };
 
 exports.createPosts = async (req, res, next) => {
-  console.log(req, res);
   const newCard = new PostCards({
     title: req.body.title,
     description: req.body.description,
